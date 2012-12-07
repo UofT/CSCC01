@@ -29,5 +29,5 @@ require_once(LIB_DIR . 'xajax_core/xajax.inc.php');
 $xjx = new xajax("functions.php");
 
 $xjx->configure('javascript URI', 'libs/');
-$xjx->configure('debug', false);
+$xjx->configure('debug', true);
 ?>

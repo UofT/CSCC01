@@ -68,9 +68,9 @@ class Course extends Base {
 
 				$res = new CourseData();
 
-				$res->courseid = $row['Course_Id'];
-				$res->coursename = $row['Course_Name'];
-				$res->coursedesc = $row['Course_Description'];
+				$res->id = $row['Course_Id'];
+				$res->name = $row['Course_Name'];
+				$res->description = $row['Course_Description'];
 
 				return $res;
 			} else {
@@ -98,9 +98,9 @@ class Course extends Base {
 		
 			$rs = new CourseData();
 	
-			$rs->courseid = $row['Course_Id'];
-			$rs->coursecomment = $row['Comment'];
-			$rs->courserate = $row['Course_Rate'];
+			$rs->id = $row['Course_Id'];
+			$rs->comment = $row['Comment'];
+			$rs->rate = $row['Course_Rate'];
 		}
 	
 		return $rs;
@@ -127,9 +127,9 @@ class Course extends Base {
 		foreach ($rowset as $row) {
 			$rs = new CourseData();
 
-			$rs->courseid = $row['Course_Id'];
-			$rs->coursename = $row['Course_Name'];
-			$rs->coursedesc = $row['Course_Description'];
+			$rs->id = $row['Course_Id'];
+			$rs->name = $row['Course_Name'];
+			$rs->description = $row['Course_Description'];
 
 			array_push($res, $rs);
 		}
@@ -157,10 +157,10 @@ class Course extends Base {
 		foreach ($rowset as $row) {
 			$rs = new CourseData();
 
-			$rs->courseid = $row['Course_Id'];
-			$rs->coursename = $row['Course_Name'];
-			$rs->coursedesc = $row['Course_Description'];
-			$rs->courserate = $row['Rate'];
+			$rs->id = $row['Course_Id'];
+			$rs->name = $row['Course_Name'];
+			$rs->description = $row['Course_Description'];
+			$rs->rate = $row['Rate'];
 
 			array_push($res, $rs);
 		}
@@ -183,9 +183,9 @@ class Course extends Base {
 		foreach ($rowset as $row) {
 			$rs = new CourseData();
 
-			$rs->courseid = $row['Course_Id'];
-			$rs->coursename = $row['Course_Name'];
-			$rs->coursedesc = $row['Course_Description'];
+			$rs->id = $row['Course_Id'];
+			$rs->name = $row['Course_Name'];
+			$rs->description = $row['Course_Description'];
 
 			array_push($res, $rs);
 		}
@@ -201,7 +201,7 @@ class Course extends Base {
 	 * @return CourseData[]
 	 */
 	public function showAllRated() {
-		$select = $this->db->select()->from('course_ratings');
+		$select = $this->db->select()->from('courses_info');
 		$rowset = $select->query()->fetchAll();
 
 		$res[] = new CourseData();
@@ -209,10 +209,12 @@ class Course extends Base {
 		foreach ($rowset as $row) {
 			$rs = new CourseData();
 
-			$rs->courseid = $row['Course_Id'];
-			$rs->coursename = $row['Course_Name'];
-			$rs->coursedesc = $row['Course_Description'];
-			$rs->courserate = $row['Rate'];
+			$rs->id = $row['Course_Id'];
+			$rs->name = $row['Course_Name'];
+			$rs->description = $row['Course_Description'];
+			$rs->rate = $row['Rate'];
+			$rs->tutors = $row['Tutors'];
+			$rs->students = $row['Students'];
 
 			array_push($res, $rs);
 		}
@@ -294,6 +296,35 @@ class Course extends Base {
 			throw new Exception('Empty user course id');
 		}
 	}
+	
+	/**
+	 * Register a tutor in the course
+	 *
+	 * @param string $courseid
+	 * @param string $coursename
+	 * @param string $coursedesc
+	 *
+	 * @return boolean
+	 */
+	public function tutorRegister($username, $courseid) {
+		if ($courseid != "") {
+			if ($username != "") {
+				$tbl = new Zend_Db_Table('Tutor_Courses');
+	
+				$tbl
+				->insert(
+						array('Course_Id' => $courseid,
+								'userlogin' => $username));
+	
+				return true;
+	
+			} else {
+				throw new Exception('Empty user name');
+			}
+		} else {
+			throw new Exception('Empty user course id');
+		}
+	}
 
 	/**
 	 * Get a user courses registration
@@ -314,15 +345,49 @@ class Course extends Base {
 			foreach ($rowset as $row) {
 				$rs = new CourseData();
 
-				$rs->courseid = $row['Course_Id'];
-				$rs->coursename = $row['Course_Name'];
-				$rs->coursedesc = $row['Course_Description'];
+				$rs->id = $row['Course_Id'];
+				$rs->name = $row['Course_Name'];
+				$rs->description = $row['Course_Description'];
 
 				array_push($res, $rs);
 			}
 
 			array_shift($res);
 
+			return $res;
+		} else {
+			throw new Exception('Empty user name');
+		}
+	}
+	
+	/**
+	 * Get a tutor courses registration
+	 *
+	 * @param string $username
+	 * @throws Exception
+	 *
+	 * @return CourseData[]
+	 */
+	public function getTutorCourses($username) {
+		if ($username != "") {
+			$select = $this->db->select()->from('tutoring_courses')
+			->where('userlogin = ?', $username);
+			$rowset = $select->query()->fetchAll();
+	
+			$res[] = new CourseData();
+	
+			foreach ($rowset as $row) {
+				$rs = new CourseData();
+	
+				$rs->id = $row['Course_Id'];
+				$rs->name = $row['Course_Name'];
+				$rs->description = $row['Course_Description'];
+	
+				array_push($res, $rs);
+			}
+	
+			array_shift($res);
+	
 			return $res;
 		} else {
 			throw new Exception('Empty user name');
@@ -361,29 +426,39 @@ class Course extends Base {
  */
 Class CourseData {
 	/**
-	 * @var string $courseid
+	 * @var string $id
 	 */
-	public $courseid;
+	public $id;
 
 	/**
-	 * @var string $coursename
+	 * @var string $name
 	 */
-	public $coursename;
+	public $name;
 
 	/**
-	 * @var string $coursedesc
+	 * @var string $description
 	 */
-	public $coursedesc;
+	public $description;
 
 	/**
-	 * @var float $courserate
+	 * @var float $rate
 	 */
-	public $courserate;
+	public $rate;
 	
 	/**
-	 * @var string $coursecomment
+	 * @var string $comment
 	 */
-	public $coursecomment;
+	public $comment;
+	
+	/**
+	 * @var int $tutors
+	 */
+	public $tutors;
+	
+	/**
+	 * @var int $students
+	 */
+	public $students;
 }
 
 ?>

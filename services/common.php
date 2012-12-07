@@ -27,8 +27,18 @@ function getCurrentURL() {
 	return $URL;
 }
 
-error_reporting(0);
-$old_error_handler = set_error_handler("userErrorHandler");
+function objectToArray($object) {
+	if (! is_object ( $object ) && ! is_array ( $object )) {
+		return $object;
+	}
+	if (is_object ( $object )) {
+		$object = get_object_vars ( $object );
+	}
+	return array_map ( 'objectToArray', $object );
+}
+
+//error_reporting(0);
+//$old_error_handler = set_error_handler("userErrorHandler");
 
 function userErrorHandler ($errno, $errmsg, $filename, $linenum,  $vars)
 {

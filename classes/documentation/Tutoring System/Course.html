@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class Course</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> Course</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">author:</span> pedrotobo</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Course.php.html">/Course.php</a> (line <span class="field">10</span>)
+		</p>
+		
+				
+		<pre><a href="../Tutoring System/Base.html">Base</a>
+   |
+   --Course</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																							
+				<div class="method-definition">
+					<img src="../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">Course</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#create" title="details" class="method-name">create</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursename</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursedesc</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#delete" title="details" class="method-name">delete</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean|null</span>
+										<a href="#getCourse" title="details" class="method-name">getCourse</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Tutoring System/CourseData.html">CourseData</a></span>
+										<a href="#getCourseRated" title="details" class="method-name">getCourseRated</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">CourseData[]</span>
+										<a href="#getTutorCourses" title="details" class="method-name">getTutorCourses</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">CourseData[]</span>
+										<a href="#getUserCourses" title="details" class="method-name">getUserCourses</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#register" title="details" class="method-name">register</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$username</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursename</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursedesc</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">CourseData[]</span>
+										<a href="#search" title="details" class="method-name">search</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$criteria</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">CourseData[]</span>
+										<a href="#searchRated" title="details" class="method-name">searchRated</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$criteria</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">CourseData[]</span>
+										<a href="#showAll" title="details" class="method-name">showAll</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">CourseData[]</span>
+										<a href="#showAllRated" title="details" class="method-name">showAllRated</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#tutorRegister" title="details" class="method-name">tutorRegister</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$username</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursename</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursedesc</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#update" title="details" class="method-name">update</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursename</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursedesc</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#updateCommentRate" title="details" class="method-name">updateCommentRate</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$coursecomment</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$courserate</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursename</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursedesc</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Constructor.png" />
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">16</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">Course</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Tutoring System/Base.html#method__construct">Base::__construct()</a></dt>
+						<dd>Consumes the configuration array</dd>
+					</dl>
+			
+	</div>
+<a name="methodcreate" id="create"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">create</span> (line <span class="line-number">31</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a new course</p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			create
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursename</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursedesc</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$courseid</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$coursename</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$coursedesc</span><span class="var-description">: <p></p><p></p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddelete" id="delete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">delete</span> (line <span class="line-number">259</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete course</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> <p>Exception</p><p></p></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			delete
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$courseid</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetCourse" id="getCourse"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getCourse</span> (line <span class="line-number">61</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a course information</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> <p>Exception</p><p></p></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean|null</span>
+		<span class="method-name">
+			getCourse
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$courseid</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetCourseRated" id="getCourseRated"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getCourseRated</span> (line <span class="line-number">90</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a rated courses</p>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Tutoring System/CourseData.html">CourseData</a></span>
+		<span class="method-name">
+			getCourseRated
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$courseid</span><span class="var-description">: <p></p><p></p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetTutorCourses" id="getTutorCourses"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getTutorCourses</span> (line <span class="line-number">370</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a tutor courses registration</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> <p>Exception</p><p></p></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">CourseData[]</span>
+		<span class="method-name">
+			getTutorCourses
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$username</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetUserCourses" id="getUserCourses"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getUserCourses</span> (line <span class="line-number">336</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a user courses registration</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> <p>Exception</p><p></p></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">CourseData[]</span>
+		<span class="method-name">
+			getUserCourses
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$username</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodregister" id="register"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">register</span> (line <span class="line-number">279</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Register a student in the course</p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			register
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$username</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursename</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursedesc</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$courseid</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$coursename</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$coursedesc</span><span class="var-description">: <p></p><p></p></span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$username</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsearch" id="search"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">search</span> (line <span class="line-number">115</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Search for a course</p>
+	
+	<div class="method-signature">
+		<span class="method-result">CourseData[]</span>
+		<span class="method-name">
+			search
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$criteria</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$criteria</span><span class="var-description">: <p></p><p></p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsearchRated" id="searchRated"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">searchRated</span> (line <span class="line-number">148</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Search for a course with rate</p>
+	
+	<div class="method-signature">
+		<span class="method-result">CourseData[]</span>
+		<span class="method-name">
+			searchRated
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$criteria</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$criteria</span><span class="var-description">: <p></p><p></p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodshowAll" id="showAll"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">showAll</span> (line <span class="line-number">177</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get all courses</p>
+	
+	<div class="method-signature">
+		<span class="method-result">CourseData[]</span>
+		<span class="method-name">
+			showAll
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodshowAllRated" id="showAllRated"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">showAllRated</span> (line <span class="line-number">202</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get all rated courses</p>
+	
+	<div class="method-signature">
+		<span class="method-result">CourseData[]</span>
+		<span class="method-name">
+			showAllRated
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodtutorRegister" id="tutorRegister"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">tutorRegister</span> (line <span class="line-number">308</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Register a tutor in the course</p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			tutorRegister
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$username</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursename</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursedesc</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$courseid</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$coursename</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$coursedesc</span><span class="var-description">: <p></p><p></p></span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$username</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdate" id="update"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">update</span> (line <span class="line-number">236</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Update course info</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> <p>Exception</p><p></p></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			update
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursename</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursedesc</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$courseid</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$coursename</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$coursedesc</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdateCommentRate" id="updateCommentRate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">updateCommentRate</span> (line <span class="line-number">406</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Update course info</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> <p>Exception</p><p></p></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			updateCommentRate
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$courseid</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$coursecomment</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$courserate</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursename</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$coursedesc</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$courseid</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$coursename</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$coursedesc</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$coursecomment</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$courserate</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Tutoring System/Base.html">Base</a></span></p>
+					<blockquote>
+													<img src="../media/images/Constructor.png" alt=" "/>
+							<span class="method-name"><a href="../Tutoring System/Base.html#method__construct">Base::__construct()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 28 Nov 2012 16:14:51 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

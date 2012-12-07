@@ -19,12 +19,23 @@
 							case 'Courses':
 								xajax_showCoursesAdmin();
 								break;
+							case 'Students':
+								xajax_showStudentsAdmin();
+								break;
+							case 'Tutors':
+								xajax_showTutorsAdmin();
+								break;
+							case 'Pending approvals':
+								xajax_showPendingApprovals();
+								break;
 							case 'Log Out':
 								xajax_logOut();
 								break;
 						}
 					}
 		});
+		
+		$( "button" ).button();
 		
 		function updateTips( t ) {
             tips
@@ -89,6 +100,38 @@
             }
         });
     });
+	
+	function delCourse(id){
+		var answer = confirm("Delete course?")
+		
+		if (answer){
+			xajax_deleteCourseAdmin(id);
+		}
+	}
+	
+	function delStudent(id){
+		var answer = confirm("Delete student?")
+		
+		if (answer){
+			xajax_deleteStudentAdmin(id);
+		}
+	}
+	
+	function delTutor(id){
+		var answer = confirm("Delete tutor?")
+		
+		if (answer){
+			xajax_deleteTutorAdmin(id);
+		}
+	}
+	
+	function approveTutor(id){
+		var answer = confirm("Approve tutor?")
+		
+		if (answer){
+			xajax_activateUser(id);
+		}
+	}
 </script>
 <style>
     .ui-menu { width: 120px; }
@@ -125,6 +168,7 @@
     <li><a href="#">Courses</a></li>
     <li><a href="#">Students</a></li>
     <li><a href="#">Tutors</a></li>
+    <li><a href="#">Pending approvals</a></li>
     <li class="ui-state-disabled"><a href="#">&nbsp;</a></li>
     <li><a href="#">Log Out</a></li>
 </ul>

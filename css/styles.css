@@ -52,6 +52,30 @@ input[type="text"], input[type="email"], input[type="password"] {
     width: 360px;
 }
 
+#event_start_date, #event_end_date {
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 1px solid #DDDDDD;
+    box-shadow: 1px 1px 4px #DDDDDD inset;
+    color: #000000;
+    font-size: 15px;
+    height: 23px;
+    margin: 0 0 5px;
+    padding: 0 5px;
+    width: 100px;
+}
+
+#event_start_time, #event_end_time {
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 1px solid #DDDDDD;
+    box-shadow: 1px 1px 4px #DDDDDD inset;
+    color: #000000;
+    font-size: 15px;
+    height: 23px;
+    margin: 0 0 5px;
+    padding: 0 5px;
+    width: 80px;
+}
+
 #passwd {
     width: 160px;
 }
